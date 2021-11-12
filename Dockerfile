@@ -16,7 +16,7 @@ RUN cargo build --target x86_64-unknown-linux-musl --release
 ####################################################################################################
 ## Final image
 ####################################################################################################
-FROM apline:edge
+FROM alpine:edge
 
 # Import ca-certificates from builder
 COPY --from=builder /usr/share/ca-certificates /usr/share/ca-certificates
