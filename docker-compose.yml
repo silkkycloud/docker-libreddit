@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+
+  server:
+    image: ghcr.io/silkkycloud/libreddit:latest
+    hostname: libreddit
+    networks:
+      - public
+    deploy:
+      mode: replicated
+      replicas: 6
+      placement:
+        max_replicas_per_node: 2
+      resources:
+        limits:
+          cpus: '3'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 1G
+    environment:
+      - LIBREDDIT_DEFAULT_USE_HLS=on
+      - LIBREDDIT_DEFAULT_SHOW_NSFW=on
+      - LIBREDDIT_DEFAULT_THEME=dark
+
+networks:
+  public:
+    external: true
