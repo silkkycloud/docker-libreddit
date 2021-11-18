@@ -1,2 +1,3 @@
-# Libreddit Docker
+# Libreddit
 
+Libreddit Docker Swarm deployment.
