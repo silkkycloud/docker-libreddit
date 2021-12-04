@@ -14,9 +14,9 @@ RUN apk add --no-cache \
 
 WORKDIR /libreddit
 
-ADD https://github.com/spikecodes/libreddit/archive/v${LIBREDDIT_VERSION}.tar.gz /tmp/libreddit-v${LIBREDDIT_VERSION}.tar.gz
-RUN tar xvfz /tmp/libreddit-v${LIBREDDIT_VERSION}.tar.gz -C /tmp \
-    && cp -r /tmp/libreddit-v${LIBREDDIT_VERSION}/. /libreddit
+ADD https://github.com/spikecodes/libreddit/archive/v${LIBREDDIT_VERSION}.tar.gz /tmp/libreddit-${LIBREDDIT_VERSION}.tar.gz
+RUN tar xvfz /tmp/libreddit-${LIBREDDIT_VERSION}.tar.gz -C /tmp \
+    && cp -r /tmp/libreddit-${LIBREDDIT_VERSION}/. /libreddit
 
 RUN cargo build --target x86_64-unknown-linux-musl --release
 
