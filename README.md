@@ -1,3 +1,3 @@
 # Libreddit
 
-Libreddit Docker Swarm deployment.
+Libreddit Docker Swarm deployment and image.

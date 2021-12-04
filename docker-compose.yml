@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   server:
-    image: spikecodes/libreddit:latest
+    image: ghcr.io/silkkycloud/libreddit:0.20.2
     hostname: libreddit
     networks:
       - public
