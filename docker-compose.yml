@@ -19,6 +19,18 @@ services:
         reservations:
           cpus: '1'
           memory: 1G
+      labels:
+        - "traefik.enable=true"
+        # Router
+        - "traefik.http.routers.libreddit.rule=Host(`${HOSTNAME}`)"
+        - "traefik.http.routers.libreddit.entrypoints=websecure"
+        - "traefik.http.routers.libreddit.tls=true"
+        - "traefik.http.routers.service=libreddit-service"
+        # Service
+        - "traefik.http.services.libreddit-service.loadbalancer.server.port=8080"
+        - "traefik.http.services.libreddit-service.loadbalancer.sticky.cookie=true"
+        - "traefik.http.services.libreddit-service.loadbalancer.sticky.cookie.secure=true"
+        - "traefik.http.services.libreddit-service.loadbalancer.sticky.cookie.samesite=strict"
     environment:
       - LIBREDDIT_DEFAULT_USE_HLS=on
       - LIBREDDIT_DEFAULT_SHOW_NSFW=on
