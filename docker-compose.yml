@@ -12,6 +12,8 @@ services:
       replicas: 6
       placement:
         max_replicas_per_node: 2
+        constraints:
+          - "node.labels.web_server == true"
       resources:
         limits:
           cpus: '3'
