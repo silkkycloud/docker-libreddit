@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/silkkycloud/libreddit:latest,ghcr.io/silkkycloud/libreddit:0.21.1
+          tags: ghcr.io/silkkycloud/libreddit:latest,ghcr.io/silkkycloud/libreddit:0.21.4
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       - name: Move Cache
