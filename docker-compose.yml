@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   server:
-    image: ghcr.io/silkkycloud/libreddit:0.21.4
+    image: ghcr.io/silkkycloud/libreddit:0.21.7
     hostname: libreddit
     networks:
       - public
