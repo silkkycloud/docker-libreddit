@@ -27,7 +27,10 @@ services:
         - "traefik.http.routers.libreddit.rule=Host(`${HOSTNAME}`)"
         - "traefik.http.routers.libreddit.entrypoints=websecure"
         - "traefik.http.routers.libreddit.tls=true"
+        - "traefik.http.routers.libreddit.middlewares=libreddit-headers"
         - "traefik.http.routers.libreddit.service=libreddit-service"
+        # Middleware
+        - "traefik.http.middlewares.libreddit-headers.headers.framedeny=true"
         # Service
         - "traefik.http.services.libreddit-service.loadbalancer.server.port=8080"
         - "traefik.http.services.libreddit-service.loadbalancer.sticky.cookie=true"
